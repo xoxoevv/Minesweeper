@@ -12,6 +12,11 @@ namespace MinesSweeperXoxoev
 {
     public partial class MainForm : Form
     {
+
+        GameManager game;
+
+        Button[,] buttons;
+
         public MainForm()
         {
             InitializeComponent();
