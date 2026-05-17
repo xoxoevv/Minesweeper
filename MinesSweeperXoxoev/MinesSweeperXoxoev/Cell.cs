@@ -11,6 +11,7 @@ namespace MinesSweeperXoxoev
         public bool HasMine { get; set; }
         public int NeighborMines { get; set; }
         public bool IsOpen { get; set; }
+        public bool IsFlagged { get; set; }
 
     }
 }

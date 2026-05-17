@@ -21,9 +21,14 @@ namespace MinesSweeperXoxoev
 
         public void InitBoard()
         {
+            // создание клеток
             for (int i = 0; i < Size; i++)
+            {
                 for (int j = 0; j < Size; j++)
+                {
                     Board[i, j] = new Cell();
+                }
+            }
 
             PlaceMines();
             CalculateNumbers();
@@ -65,9 +70,12 @@ namespace MinesSweeperXoxoev
                             int nx = x + i;
                             int ny = y + j;
 
-                            if (nx >= 0 && ny >= 0 && nx < Size && ny < Size)
+                            if (nx >= 0 && ny >= 0 &&
+                                nx < Size && ny < Size)
+                            {
                                 if (Board[nx, ny].HasMine)
                                     count++;
+                            }
                         }
                     }
 
