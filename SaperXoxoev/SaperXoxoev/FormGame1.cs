@@ -15,6 +15,7 @@ namespace SaperXoxoev
     public partial class FormGame1 : Form
     {
 
+        private GameField field;
 
         Image bomb, empty, flag, four, one, three, two, unknown;
 
@@ -196,6 +197,8 @@ namespace SaperXoxoev
 
         public void NewGame()
         {
+            field = new GameField(9);
+
             defeat = false;
 
             FirstClick = true;
