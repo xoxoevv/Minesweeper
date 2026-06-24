@@ -1,21 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace SaperXoxoev
 {
     public class RecordsData
     {
-        public int EasyRecord { get; set; } = 0;     
-        public int MediumRecord { get; set; } = 0;   
-        public int HardRecord { get; set; } = 0;     
-        public int ExpertRecord { get; set; } = 0;  
+        [JsonProperty("Лучшее_время_Новичок")]
+        public int EasyRecord { get; set; } = 0;
 
-        // Количество сыгранных партий (для статистики)
+        [JsonProperty("Лучшее_время_Любитель")]
+        public int MediumRecord { get; set; } = 0;
+
+        [JsonProperty("Лучшее_время_Профессионал")]
+        public int HardRecord { get; set; } = 0;
+
+        [JsonProperty("Лучшее_время_Особый")]
+        public int ExpertRecord { get; set; } = 0;
+
+        [JsonProperty("Всего_игр")]
         public int TotalGames { get; set; } = 0;
+
+        [JsonProperty("Побед")]
         public int Wins { get; set; } = 0;
+
+        [JsonProperty("Поражений")]
         public int Losses { get; set; } = 0;
     }
 }
