@@ -4,19 +4,19 @@ namespace SaperXoxoev
 {
     public class RecordsData
     {
-        [JsonProperty("Лучшее_время_Новичок")]
+        [JsonProperty("Лучшее время Новичок")]
         public int EasyRecord { get; set; } = 0;
 
-        [JsonProperty("Лучшее_время_Любитель")]
+        [JsonProperty("Лучшее время Любитель")]
         public int MediumRecord { get; set; } = 0;
 
-        [JsonProperty("Лучшее_время_Профессионал")]
+        [JsonProperty("Лучшее время Профессионал")]
         public int HardRecord { get; set; } = 0;
 
-        [JsonProperty("Лучшее_время_Особый")]
+        [JsonProperty("Лучшее время Особый")]
         public int ExpertRecord { get; set; } = 0;
 
-        [JsonProperty("Всего_игр")]
+        [JsonProperty("Всего игр")]
         public int TotalGames { get; set; } = 0;
 
         [JsonProperty("Побед")]
