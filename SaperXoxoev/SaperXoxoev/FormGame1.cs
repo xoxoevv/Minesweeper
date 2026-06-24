@@ -14,7 +14,7 @@ namespace SaperXoxoev
 {
     public partial class FormGame1 : Form
     {
-        // Храним всё в engine — больше никаких дублирующих полей!
+
         private GameEngine engine;
 
         Image bomb, empty, flag, four, one, three, two, unknown;
@@ -33,7 +33,7 @@ namespace SaperXoxoev
 
             engine = new GameEngine(bombsCount);
 
-            // Загрузка изображений
+
             bomb = Bitmap.FromFile("images/bomb.png");
             empty = Bitmap.FromFile("images/empty.png");
             flag = Bitmap.FromFile("images/flag.png");
@@ -55,8 +55,8 @@ namespace SaperXoxoev
                 {
                     Cell cell = engine.field[i, j];
 
-                    if (!cell.IsMine) safeCells++;      // Безопасная клетка
-                    if (cell.IsOpen && !cell.IsMine) opened++;  // Открытая безопасная
+                    if (!cell.IsMine) safeCells++;     
+                    if (cell.IsOpen && !cell.IsMine) opened++;  
                 }
             }
 
@@ -109,13 +109,11 @@ namespace SaperXoxoev
 
         private void OpenEmptyCells(int row, int column)
         {
-            // Проверка выхода за границы
             if (row < 0 || row >= 9 || column < 0 || column >= 9)
                 return;
 
             Cell cell = engine.field[row, column];
 
-            // Если клетка уже открыта или стоит флаг — выходим
             if (cell.IsOpen)
                 return;
 
@@ -126,11 +124,9 @@ namespace SaperXoxoev
 
             if (bombs == 0)
             {
-                // Пустая клетка — открываем и идем дальше (РЕКУРСИЯ!)
                 dataGridViewGameField.Rows[row].Cells[column].Value = empty;
                 cell.IsOpen = true;
 
-                // Обходим все 8 соседних клеток
                 for (int i = -1; i <= 1; i++)
                 {
                     for (int j = -1; j <= 1; j++)
@@ -144,7 +140,6 @@ namespace SaperXoxoev
             }
             else
             {
-                // Открываем клетку с цифрой
                 cell.IsOpen = true;
 
                 switch (bombs)
@@ -176,10 +171,8 @@ namespace SaperXoxoev
 
             labelCountFlag.Text = "Количество флажков: " + flagsCnt.ToString();
 
-            // Создаем новую логику и поле
             engine = new GameEngine(bombsCount);
 
-            // Сбрасываем отображение
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
@@ -194,26 +187,21 @@ namespace SaperXoxoev
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Если уже поражение или победа — не даем кликать
             if (defeat)
                 return;
 
-            // Если клетка уже открыта — выходим
             if (engine.field[e.RowIndex, e.ColumnIndex].IsOpen)
                 return;
 
-            // Если стоит флаг — не открываем
             if (engine.field[e.RowIndex, e.ColumnIndex].IsFlag)
                 return;
 
-            // Первый клик — генерируем мины
             if (FirstClick)
             {
                 engine.GenerateBombs(e.RowIndex, e.ColumnIndex);
                 FirstClick = false;
             }
 
-            // Если попали на мину — поражение
             if (engine.field[e.RowIndex, e.ColumnIndex].IsMine)
             {
                 dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = bomb;
@@ -231,7 +219,6 @@ namespace SaperXoxoev
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Если уже поражение или победа — не даем ставить флаги
             if (defeat)
                 return;
 
@@ -239,11 +226,9 @@ namespace SaperXoxoev
             {
                 Cell cell = engine.field[e.RowIndex, e.ColumnIndex];
 
-                // Не ставим флаг на открытую клетку
                 if (cell.IsOpen)
                     return;
 
-                // Ставим флаг, если его нет и есть флажки
                 if (!cell.IsFlag && flagsCnt > 0)
                 {
                     dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = flag;
@@ -259,7 +244,6 @@ namespace SaperXoxoev
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            // Если уже поражение или победа — не даем снимать флаги
             if (defeat)
                 return;
 
@@ -267,7 +251,6 @@ namespace SaperXoxoev
             {
                 Cell cell = engine.field[e.RowIndex, e.ColumnIndex];
 
-                // Снимаем флаг, если он есть
                 if (cell.IsFlag)
                 {
                     dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = unknown;

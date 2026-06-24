@@ -8,7 +8,7 @@ namespace SaperXoxoev
 {
     internal class GameEngine
     {
-        public Cell[,] field;  // Теперь массив объектов Cell!
+        public Cell[,] field;  
         public int Size = 9;
         public int BombsCount;
         Random rnd = new Random();
@@ -18,7 +18,6 @@ namespace SaperXoxoev
             BombsCount = bombs;
             field = new Cell[Size, Size];
 
-            // Инициализируем все клетки
             for (int i = 0; i < Size; i++)
             {
                 for (int j = 0; j < Size; j++)
@@ -37,7 +36,6 @@ namespace SaperXoxoev
                 int row = rnd.Next(0, Size);
                 int column = rnd.Next(0, Size);
 
-                // Не ставим мину туда, где уже есть, и туда, куда кликнули
                 if (!field[row, column].IsMine && !(row == safeRow && column == safeColumn))
                 {
                     field[row, column].IsMine = true;
