@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewGameField = new System.Windows.Forms.DataGridView();
-            this.labelCountFlag = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -39,6 +38,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelCountFlag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGameField)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,15 +69,6 @@
             this.dataGridViewGameField.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGameField_CellContentClick);
             this.dataGridViewGameField.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewGameField_CellMouseClick);
             this.dataGridViewGameField.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewGameField_CellMouseDoubleClick);
-            // 
-            // labelCountFlag
-            // 
-            this.labelCountFlag.AutoSize = true;
-            this.labelCountFlag.Location = new System.Drawing.Point(284, 28);
-            this.labelCountFlag.Name = "labelCountFlag";
-            this.labelCountFlag.Size = new System.Drawing.Size(44, 16);
-            this.labelCountFlag.TabIndex = 1;
-            this.labelCountFlag.Text = "label1";
             // 
             // Column1
             // 
@@ -142,11 +133,20 @@
             this.Column9.Name = "Column9";
             this.Column9.Width = 125;
             // 
+            // labelCountFlag
+            // 
+            this.labelCountFlag.AutoSize = true;
+            this.labelCountFlag.Location = new System.Drawing.Point(284, 28);
+            this.labelCountFlag.Name = "labelCountFlag";
+            this.labelCountFlag.Size = new System.Drawing.Size(44, 16);
+            this.labelCountFlag.TabIndex = 1;
+            this.labelCountFlag.Text = "label1";
+            // 
             // FormGame1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(985, 534);
             this.Controls.Add(this.labelCountFlag);
             this.Controls.Add(this.dataGridViewGameField);
             this.Name = "FormGame1";

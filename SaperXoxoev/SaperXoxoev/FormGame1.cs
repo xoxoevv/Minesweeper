@@ -74,8 +74,7 @@ namespace SaperXoxoev
                         safeCells++;
                     }
 
-                    if (dataGridViewGameField.Rows[i].Cells[j].Value != unknown
-                        && engine.field[i, j] == 0)
+                    if (dataGridViewGameField.Rows[i].Cells[j].Value != unknown && engine.field[i, j] == 0)
                     {
                         opened++;
                     }
@@ -86,11 +85,7 @@ namespace SaperXoxoev
             {
                 ShowBombs();
 
-                DialogResult result =
-                    MessageBox.Show(
-                        "Вы выиграли! Сыграть ещё?",
-                        "Победа",
-                        MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Вы выиграли! Сыграть ещё?", "Победа", MessageBoxButtons.YesNo);
 
                 if (result == DialogResult.Yes)
                 {
@@ -125,11 +120,7 @@ namespace SaperXoxoev
         {
             ShowBombs();
 
-            DialogResult result =
-                MessageBox.Show(
-                    "Вы проиграли. Сыграть ещё?",
-                    "Поражение",
-                    MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Вы проиграли. Сыграть ещё?", "Поражение", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {
@@ -205,7 +196,7 @@ namespace SaperXoxoev
 
             flagsCnt = bombsCount;
 
-            labelCountFlag.Text = flagsCnt.ToString();
+            labelCountFlag.Text = "Количество флажков: " + flagsCnt.ToString();
 
             engine = new GameEngine(bombsCount);
 
@@ -236,9 +227,7 @@ namespace SaperXoxoev
 
             if (engine.field[e.RowIndex, e.ColumnIndex] == 1)
             {
-                dataGridViewGameField.Rows[e.RowIndex]
-                    .Cells[e.ColumnIndex]
-                    .Value = bomb;
+                dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = bomb;
 
                 defeat = true;
 
@@ -261,18 +250,15 @@ namespace SaperXoxoev
 
             if (e.Button == MouseButtons.Right)
             {
-                if (fieldFlags[e.RowIndex, e.ColumnIndex] == 0
-                    && flagsCnt > 0)
+                if (fieldFlags[e.RowIndex, e.ColumnIndex] == 0 && flagsCnt > 0)
                 {
-                    dataGridViewGameField.Rows[e.RowIndex]
-                        .Cells[e.ColumnIndex]
-                        .Value = flag;
+                    dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = flag;
 
                     fieldFlags[e.RowIndex, e.ColumnIndex] = 1;
 
                     flagsCnt--;
 
-                    labelCountFlag.Text = flagsCnt.ToString();
+                    labelCountFlag.Text = "Количество флажков: " + flagsCnt.ToString();
                 }
             }
 
@@ -288,15 +274,13 @@ namespace SaperXoxoev
             {
                 if (fieldFlags[e.RowIndex, e.ColumnIndex] == 1)
                 {
-                    dataGridViewGameField.Rows[e.RowIndex]
-                        .Cells[e.ColumnIndex]
-                        .Value = unknown;
+                    dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = unknown;
 
                     fieldFlags[e.RowIndex, e.ColumnIndex] = 0;
 
                     flagsCnt++;
 
-                    labelCountFlag.Text = flagsCnt.ToString();
+                    labelCountFlag.Text = "Количество флажков: " + flagsCnt.ToString();
                 }
             }
 
