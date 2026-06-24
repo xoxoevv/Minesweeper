@@ -105,7 +105,7 @@ namespace SaperXoxoev
                 case 10: record = records.EasyRecord; levelName = "Новичок"; break;
                 case 13: record = records.MediumRecord; levelName = "Любитель"; break;
                 case 16: record = records.HardRecord; levelName = "Профессионал"; break;
-                case 52: record = records.ExpertRecord; levelName = "Легенда"; break;
+                case 52: record = records.ExpertRecord; levelName = "Мастер"; break;
             }
 
             if (record > 0)

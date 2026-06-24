@@ -13,7 +13,7 @@ namespace SaperXoxoev
         [JsonProperty("Лучшее время Профессионал")]
         public int HardRecord { get; set; } = 0;
 
-        [JsonProperty("Лучшее время Особый")]
+        [JsonProperty("Лучшее время Мастер")]
         public int ExpertRecord { get; set; } = 0;
 
         [JsonProperty("Всего игр")]

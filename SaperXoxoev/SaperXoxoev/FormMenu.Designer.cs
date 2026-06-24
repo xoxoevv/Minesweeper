@@ -50,7 +50,7 @@
             "Легкий",
             "Средний",
             "Сложный",
-            "Невозможный"});
+            "Мастер"});
             this.comboBoxDifficulty.Location = new System.Drawing.Point(311, 48);
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             this.comboBoxDifficulty.Size = new System.Drawing.Size(141, 24);
