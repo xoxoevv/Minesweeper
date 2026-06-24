@@ -83,7 +83,6 @@ namespace SaperXoxoev
             labelTime.Text = "Время: 0с";
             labelTime.Location = new Point(10, 335);
             labelTime.AutoSize = true;
-            labelTime.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             this.Controls.Add(labelTime);
 
             // Метка для рекорда
@@ -91,7 +90,6 @@ namespace SaperXoxoev
             labelRecord.Text = "Рекорд: -";
             labelRecord.Location = new Point(150, 335);
             labelRecord.AutoSize = true;
-            labelRecord.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             this.Controls.Add(labelRecord);
 
             this.Size = new Size(340, 420);
@@ -107,7 +105,7 @@ namespace SaperXoxoev
                 case 10: record = records.EasyRecord; levelName = "Новичок"; break;
                 case 13: record = records.MediumRecord; levelName = "Любитель"; break;
                 case 16: record = records.HardRecord; levelName = "Профессионал"; break;
-                case 52: record = records.ExpertRecord; levelName = "Особый"; break;
+                case 52: record = records.ExpertRecord; levelName = "Легенда"; break;
             }
 
             if (record > 0)
@@ -211,7 +209,7 @@ namespace SaperXoxoev
 
             ShowBombs();
 
-            DialogResult result = MessageBox.Show("💥 Вы проиграли!\n\nСыграть ещё?", "Поражение", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            DialogResult result = MessageBox.Show(" Вы проиграли!\n\nСыграть ещё?", "Поражение", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
             if (result == DialogResult.Yes)
             {
@@ -286,10 +284,10 @@ namespace SaperXoxoev
             flagsCnt = bombsCount;
 
             seconds = 0;
-            labelTime.Text = "⏱ Время: 0с";
+            labelTime.Text = "Время: 0с";
             gameTimer.Stop();
 
-            labelCountFlag.Text = "🚩 Флажков: " + flagsCnt.ToString();
+            labelCountFlag.Text = "Флажков: " + flagsCnt.ToString();
 
             engine = new GameEngine(bombsCount);
 
@@ -356,7 +354,7 @@ namespace SaperXoxoev
                     dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = flag;
                     cell.IsFlag = true;
                     flagsCnt--;
-                    labelCountFlag.Text = "🚩 Флажков: " + flagsCnt.ToString();
+                    labelCountFlag.Text = "Флажков: " + flagsCnt.ToString();
                 }
             }
         }
@@ -377,7 +375,7 @@ namespace SaperXoxoev
                     dataGridViewGameField.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = unknown;
                     cell.IsFlag = false;
                     flagsCnt++;
-                    labelCountFlag.Text = "🚩 Флажков: " + flagsCnt.ToString();
+                    labelCountFlag.Text = "Флажков: " + flagsCnt.ToString();
                 }
             }
         }
