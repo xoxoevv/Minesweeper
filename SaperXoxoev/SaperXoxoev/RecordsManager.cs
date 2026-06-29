@@ -10,10 +10,7 @@ namespace SaperXoxoev
 {
     public static class RecordsManager
     {
-        private static string filePath = Path.Combine(
-            AppDomain.CurrentDomain.BaseDirectory,
-            "records.json"
-        );
+        private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"records.json");
 
         public static RecordsData LoadRecords()
         {
