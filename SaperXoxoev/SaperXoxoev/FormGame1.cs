@@ -39,22 +39,19 @@ namespace SaperXoxoev
         {
             InitializeComponent();
 
-            currentLevelBombs = bombs;  // Запоминаем уровень
+            currentLevelBombs = bombs;
             bombsCount = bombs;
             flagsCnt = bombs;
 
             engine = new GameEngine(bombsCount);
 
-            // Загружаем рекорды
             records = RecordsManager.LoadRecords();
 
-            // Создаем таймер
             gameTimer = new System.Windows.Forms.Timer();
 
             gameTimer.Interval = 1000;  // 1 секунда
             gameTimer.Tick += GameTimer_Tick;
 
-            // Создаем метки для времени и рекорда
             CreateLabels();
 
             try
@@ -85,7 +82,6 @@ namespace SaperXoxoev
             labelTime.AutoSize = true;
             this.Controls.Add(labelTime);
 
-            // Метка для рекорда
             labelRecord = new Label();
             labelRecord.Text = "Рекорд: -";
             labelRecord.Location = new Point(150, 335);
